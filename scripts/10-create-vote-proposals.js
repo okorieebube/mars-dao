@@ -20,6 +20,7 @@ const tokenModule = sdk.getTokenModule(
       "Should the DAO mint an additional " + amount + " tokens into the treasury?",
       [
         {
+              gasLimit:300000,
           // Our nativeToken is ETH. nativeTokenValue is the amount of ETH we want
           // to send in this proposal. In this case, we're sending 0 ETH.
           // We're just minting new tokens to the treasury. So, set to 0.
@@ -35,7 +36,6 @@ const tokenModule = sdk.getTokenModule(
           ),
           // Our token module that actually executes the mint.
           toAddress: tokenModule.address,
-          gasLimit:300000,
         },
       ]
     );
@@ -56,6 +56,7 @@ const tokenModule = sdk.getTokenModule(
       process.env.WALLET_ADDRESS + " for being awesome?",
       [
         {
+              gasLimit:300000,
           // Again, we're sending ourselves 0 ETH. Just sending our own token.
           nativeTokenValue: 0,
           transactionData: tokenModule.contract.interface.encodeFunctionData(
@@ -68,7 +69,7 @@ const tokenModule = sdk.getTokenModule(
           ),
 
           toAddress: tokenModule.address,
-          gasLimit:300000,
+        //   gasLimit:300000,
         },
       ]
     );
